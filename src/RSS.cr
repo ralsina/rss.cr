@@ -49,7 +49,7 @@ class RSS
                     xml.element("description") { xml.cdata @description.empty? ? @title : @description }
                     xml.element("link") { xml.text @site_url.empty? ? "https://github.com/ga2mer/rss.cr" : @site_url }
                     xml.element("generator") { xml.text @generator }
-                    xml.element("lastBuildDate") { xml.text Time.utc_now.to_s }
+                    xml.element("lastBuildDate") { xml.text Time.utc.to_s }
 
                     #!@feed_url.empty? && xml.element("atom:link", "atom:link")
                     !@author.empty? && xml.element("author") { xml.cdata @author }
