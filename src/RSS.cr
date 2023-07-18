@@ -62,7 +62,7 @@ class RSS
           @items.each do |item|
             xml.element("item") do
               xml.element("title") { xml.cdata item["title"] }
-              !item["description"].empty? && xml.element("link") { xml.cdata item["description"] }
+              !item["description"].empty? && xml.element("description") { xml.cdata item["description"] }
               !item["link"].empty? && xml.element("link") { xml.text item["link"] }
               # worst
               !item["link"].empty? || !item["guid"].empty? || !item["title"].empty? ? xml.element("guid", "isPermaLink": item["guid"].empty? || !item["link"].empty?) {
